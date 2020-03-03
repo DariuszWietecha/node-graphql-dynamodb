@@ -1,0 +1,42 @@
+{
+   "name": "node-graphql-dynamodb",
+   "version": "0.0.1",
+   "description": "An exemplary implementation of GraphQL API and AWS DynamoDB",
+   "repository": {
+      "type": "git",
+      "url": "git@github.com:DariuszWietecha/node-sqs-soap-nmbrsapi-workflow.git"
+    },
+    "author": "Dariusz Wietecha",
+    "license": "ISC",
+    "scripts": {
+      "start": "node ./dist/index.js",
+      "test": "mocha -r ts-node/register -r tsconfig-paths/register test/**/*.spec.ts",
+      "build": "tsc -p tsconfig.compiler.json",
+      "install": "npm run-script build",
+      "startLocalStack": "docker-compose -f ./test/docker-compose.yml up -d",
+      "stopLocalStack": "docker-compose -f ./test/docker-compose.yml down"
+   },
+   "dependencies": {
+      "aws-sdk": "^2.630.0",
+      "dotenv": "^8.2.0",
+      "graphql-yoga": "^1.18.2",
+      "reflect-metadata": "^0.1.13",
+      "type-graphql": "^0.17.5",
+      "uuid": "^7.0.1"
+   },
+   "devDependencies": {
+      "@types/chai": "^4.2.0",
+      "@types/mocha": "^5.2.7",
+      "@types/node": "^12.7.2",
+      "@types/supertest": "^2.0.8",
+      "@types/uuid": "^7.0.0",
+      "@types/ws": "^6.0.2",
+      "chai": "^4.2.0",
+      "mocha": "^6.2.0",
+      "supertest": "^4.0.2",
+      "ts-node": "^8.3.0",
+      "tsconfig-paths": "^3.8.0",
+      "tslint": "^5.19.0",
+      "typescript": "^3.5.3"
+   }
+}

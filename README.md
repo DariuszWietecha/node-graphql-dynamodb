@@ -17,7 +17,7 @@ Exemplary query and mutation can be found in unit tests spec(test/Configuration.
 1. Install dependencies and build using `npm install`.
 2. Copy `example.env` as `.env`.
 1. Run yoga server using `npm start`.
-2. [Install Docker Compose](https://docs.docker.com/compose/install/), run the Docker and update `.env/DYNAMODB_URL` with `Docker default machine IP`:4576, e.g. `SQS_URL=http://localhost:4576`
+2. [Install Docker Compose](https://docs.docker.com/compose/install/), run the Docker and update `.env/DYNAMODB_URL` with `Docker default machine IP`:4569, e.g. `SQS_URL=http://localhost:4569`
 3. Run the Local Stack and create a DynamoDB table by [AWS CLI](https://docs.aws.amazon.com/cli/latest/index.html) command: `aws --endpoint-url=http://192.168.99.100:4569 dynamodb create-table --table-name configuration --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=40000,WriteCapacityUnits=40000`.
 3. To run unit tests execute `npm test`.
 

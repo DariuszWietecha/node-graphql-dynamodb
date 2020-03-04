@@ -19,8 +19,8 @@ Exemplary query and mutation can be found in unit tests spec(test/Configuration.
 1. Run yoga server using `npm start`.
 2. [Install Docker Compose](https://docs.docker.com/compose/install/), run the Docker and update `.env/DYNAMODB_URL` with `Docker default machine IP`:4569, e.g. `SQS_URL=http://localhost:4569`
 3. Run the Local Stack by command: `npm run startLocalStack`
-4. Create a DynamoDB table by [AWS CLI](https://docs.aws.amazon.com/cli/latest/index.html) command: `aws --endpoint-url=http://localhost:4569 dynamodb create-table --table-name configuration --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=40000,WriteCapacityUnits=40000`.
-Use proper for you Docker machine IP(in above command).
+4. Create a DynamoDB table by [AWS CLI](https://docs.aws.amazon.com/cli/latest/index.html) command: `aws --endpoint-url=http://192.168.99.100:4569 dynamodb create-table --table-name configuration --attribute-definitions AttributeName=id,AttributeType=S AttributeName=userId,AttributeType=S AttributeName=name,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --global-secondary-indexes "[{\"IndexName\": \"userId-index\",\"KeySchema\":[{\"AttributeName\":\"userId\",\"KeyType\":\"HASH\"}], \"ProvisionedThroughput\": {\"ReadCapacityUnits\": 10, \"WriteCapacityUnits\": 5 },\"Projection\":{\"ProjectionType\":\"ALL\"}}, {\"IndexName\": \"name-index\",\"KeySchema\":[{\"AttributeName\":\"name\",\"KeyType\":\"HASH\"}], \"ProvisionedThroughput\": {\"ReadCapacityUnits\": 10, \"WriteCapacityUnits\": 5 },\"Projection\":{\"ProjectionType\":\"ALL\"}}]" --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5`.
+In above command, use you Docker machine IP(eg http://localhost or http://192.168.99.100).
 3. To run unit tests execute `npm test`.
 
 ### Notes:
